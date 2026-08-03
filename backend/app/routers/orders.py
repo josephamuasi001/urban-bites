@@ -1,0 +1,30 @@
+from fastapi import APIRouter, Depends
+
+from app.auth.auth_bearer import get_current_user
+from app.schemas.order import OrderCreate
+from app.services.order_service import (
+    create_order,
+    get_all_orders
+)
+
+router = APIRouter(
+    prefix="/orders",
+    tags=["Orders"]
+)
+
+
+@router.post("/")
+def place_order(
+    order: OrderCreate,
+    current_user=Depends(get_current_user)
+):
+
+    return create_order(
+        order,
+        current_user["sub"]
+    )
+
+
+@router.get("/")
+def orders():
+    return get_all_orders()

@@ -2,6 +2,8 @@ from fastapi import FastAPI
 
 from app.database.supabase import supabase
 
+from app.routers.orders import router as order_router
+
 from app.routers.menus import router as menu_router
 
 from app.routers.users import router as user_router
@@ -15,7 +17,7 @@ app = FastAPI(
 app.include_router(user_router)
 app.include_router(restaurant_router)
 app.include_router(menu_router)
-
+app.include_router(order_router)
 
 @app.get("/")
 def home():
