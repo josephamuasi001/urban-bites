@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from app.database.supabase import supabase
 
 app = FastAPI(
     title="Urban Bite API",
@@ -7,9 +8,15 @@ app = FastAPI(
 
 
 @app.get("/")
-def root():
+def home():
     return {
-        "message": "Welcome to the Urban Bite API!"
+        "message": "Welcome to Urban Bite API!"
     }
 
 
+@app.get("/test-db")
+def test_db():
+
+    response = supabase.table("test").select("*").execute()
+
+    return response.data
