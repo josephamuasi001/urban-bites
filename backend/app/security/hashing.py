@@ -5,10 +5,8 @@ pwd_context = CryptContext(
     deprecated="auto"
 )
 
-
-def hash_password(password: str):
+def hash_password(password):
     return pwd_context.hash(password)
-
 
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(

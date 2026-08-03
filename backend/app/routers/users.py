@@ -1,13 +1,17 @@
 from fastapi import APIRouter, Depends
+
 from app.auth.auth_bearer import get_current_user
 
+from fastapi.security import OAuth2PasswordRequestForm
+
 from app.schemas.user import UserCreate, UserLogin
-from app.services.user_service import create_user
+
 from app.services.user_service import (
     create_user,
     get_all_users,
     login_user
 )
+
 router = APIRouter(
     prefix="/users",
     tags=["Users"]
@@ -21,18 +25,20 @@ def get_users():
 
 @router.post("/register")
 def register(user: UserCreate):
-
     return create_user(user)
 
 
 @router.post("/login")
-def login(user: UserLogin):
+def login(form_data: OAuth2PasswordRequestForm = Depends()):
 
-    return login_user(user)
+    return login_user(
+        form_data.username,
+        form_data.password
+    )
+
 
 @router.get("/me")
 def get_me(current_user=Depends(get_current_user)):
-
     return {
         "message": "Authenticated user.",
         "user": current_user

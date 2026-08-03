@@ -50,12 +50,12 @@ def get_all_users():
     return response.data
 
 
-def login_user(user):
+def login_user(email: str, password: str):
 
     response = (
         supabase.table("users")
         .select("*")
-        .eq("email", user.email)
+        .eq("email", email)
         .execute()
     )
 
@@ -67,7 +67,7 @@ def login_user(user):
 
     db_user = response.data[0]
 
-    if not verify_password(user.password, db_user["password_hash"]):
+    if not verify_password(password, db_user["password_hash"]):
         return {
             "success": False,
             "message": "Invalid email or password."
