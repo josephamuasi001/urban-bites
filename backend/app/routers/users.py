@@ -1,4 +1,5 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
+from app.auth.auth_bearer import get_current_user
 
 from app.schemas.user import UserCreate, UserLogin
 from app.services.user_service import create_user
@@ -28,3 +29,11 @@ def register(user: UserCreate):
 def login(user: UserLogin):
 
     return login_user(user)
+
+@router.get("/me")
+def get_me(current_user=Depends(get_current_user)):
+
+    return {
+        "message": "Authenticated user.",
+        "user": current_user
+    }
