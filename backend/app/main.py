@@ -1,10 +1,14 @@
 from fastapi import FastAPI
+
 from app.database.supabase import supabase
+from app.routers.users import router as user_router
 
 app = FastAPI(
     title="Urban Bite API",
     version="1.0.0"
 )
+
+app.include_router(user_router)
 
 
 @app.get("/")
