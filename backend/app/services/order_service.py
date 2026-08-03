@@ -86,3 +86,26 @@ def get_my_orders(user_id):
     )
 
     return response.data
+
+def update_order_status(order_id, status):
+
+    response = (
+        supabase.table("orders")
+        .update({
+            "status": status
+        })
+        .eq("id", order_id)
+        .execute()
+    )
+
+    if not response.data:
+        return {
+            "success": False,
+            "message": "Order not found."
+        }
+
+    return {
+        "success": True,
+        "message": "Order updated successfully.",
+        "data": response.data
+    }

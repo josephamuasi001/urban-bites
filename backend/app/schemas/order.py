@@ -9,3 +9,7 @@ class OrderItemCreate(BaseModel):
 class OrderCreate(BaseModel):
     restaurant_id: str
     items: list[OrderItemCreate]
+
+
+class OrderStatusUpdate(BaseModel):
+    status: str
