@@ -1,6 +1,12 @@
 from fastapi import APIRouter, Depends
 
 from app.auth.auth_bearer import get_current_user
+from app.services.order_service import (
+    create_order,
+    get_all_orders,
+    get_my_orders
+)
+
 from app.schemas.order import OrderCreate
 from app.services.order_service import (
     create_order,
@@ -28,3 +34,11 @@ def place_order(
 @router.get("/")
 def orders():
     return get_all_orders()
+
+
+@router.get("/my-orders")
+def my_orders(current_user=Depends(get_current_user)):
+
+    return get_my_orders(
+        current_user["sub"]
+    )

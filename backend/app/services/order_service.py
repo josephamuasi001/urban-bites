@@ -74,3 +74,15 @@ def get_all_orders():
     )
 
     return response.data
+
+
+def get_my_orders(user_id):
+
+    response = (
+        supabase.table("orders")
+        .select("*")
+        .eq("user_id", user_id)
+        .execute()
+    )
+
+    return response.data
