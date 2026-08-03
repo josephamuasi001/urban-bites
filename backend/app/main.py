@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 
-from app.routers.restaurants import router as restaurant_router
 from app.database.supabase import supabase
-from app.routers.users import router as user_router
 
+from app.routers.users import router as user_router
+from app.routers.restaurants import router as restaurant_router
 
 app = FastAPI(
     title="Urban Bite API",
@@ -12,6 +12,7 @@ app = FastAPI(
 
 app.include_router(user_router)
 app.include_router(restaurant_router)
+
 
 @app.get("/")
 def home():

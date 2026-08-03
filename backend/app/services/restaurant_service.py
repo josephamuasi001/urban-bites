@@ -3,18 +3,34 @@ from app.database.supabase import supabase
 
 def create_restaurant(restaurant):
 
+    existing = (
+        supabase.table("restaurants")
+        .select("*")
+        .eq("email", restaurant.email)
+        .execute()
+    )
+
+    if existing.data:
+        return {
+            "success": False,
+            "message": "Restaurant already exists."
+        }
+
     response = (
         supabase.table("restaurants")
         .insert({
             "name": restaurant.name,
             "description": restaurant.description,
+            "cuisine": restaurant.cuisine,
             "address": restaurant.address,
+            "city": restaurant.city,
             "phone": restaurant.phone,
             "email": restaurant.email,
             "image_url": restaurant.image_url,
             "opening_time": restaurant.opening_time,
             "closing_time": restaurant.closing_time,
-            "is_open": restaurant.is_open
+            "delivery_fee": restaurant.delivery_fee,
+            "minimum_order": restaurant.minimum_order
         })
         .execute()
     )
@@ -24,3 +40,32 @@ def create_restaurant(restaurant):
         "message": "Restaurant created successfully.",
         "data": response.data
     }
+
+
+def get_all_restaurants():
+
+    response = (
+        supabase.table("restaurants")
+        .select("*")
+        .execute()
+    )
+
+    return response.data
+
+
+def get_restaurant_by_id(restaurant_id):
+
+    response = (
+        supabase.table("restaurants")
+        .select("*")
+        .eq("id", restaurant_id)
+        .execute()
+    )
+
+    if not response.data:
+        return {
+            "success": False,
+            "message": "Restaurant not found."
+        }
+
+    return response.data[0]
