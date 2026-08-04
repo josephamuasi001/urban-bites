@@ -8,6 +8,8 @@ from app.routers.menus import router as menu_router
 
 from app.routers.reviews import router as review_router
 
+from app.routers.order_items import router as order_item_router
+
 from app.routers.users import router as user_router
 from app.routers.restaurants import router as restaurant_router
 
@@ -21,6 +23,8 @@ app.include_router(restaurant_router)
 app.include_router(menu_router)
 app.include_router(order_router)
 app.include_router(review_router)
+app.include_router(order_item_router)
+
 
 @app.get("/")
 def home():
