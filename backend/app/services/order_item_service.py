@@ -1,8 +1,5 @@
 from app.database.supabase import supabase
 
-from app.database.supabase import supabase
-
-
 def create_order_item(order_item):
 
     response = (
@@ -79,3 +76,63 @@ def update_order_total(order_id):
     )
 
     return total
+
+
+def update_order_item(order_item_id, order_item):
+
+    response = (
+        supabase.table("order_items")
+        .update({
+            "order_id": order_item.order_id,
+            "menu_item_id": order_item.menu_item_id,
+            "quantity": order_item.quantity,
+            "price": order_item.price
+        })
+        .eq("id", order_item_id)
+        .execute()
+    )
+
+    update_order_total(order_item.order_id)
+
+    return {
+        "success": True,
+        "message": "Order item updated successfully.",
+        "data": response.data
+    }
+    
+
+def delete_order_item(order_item_id):
+
+    # Find which order this belongs to
+    existing = (
+        supabase.table("order_items")
+        .select("*")
+        .eq("id", order_item_id)
+        .execute()
+    )
+
+    if not existing.data:
+        return {
+            "success": False,
+            "message": "Order item not found."
+        }
+
+    order_id = existing.data[0]["order_id"]
+
+    response = (
+        supabase.table("order_items")
+        .delete()
+        .eq("id", order_item_id)
+        .execute()
+    )
+
+    update_order_total(order_id)
+
+    return {
+        "success": True,
+        "message": "Order item deleted successfully.",
+        "data": response.data
+    }
+    
+
+

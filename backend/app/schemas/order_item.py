@@ -6,3 +6,10 @@ class OrderItemCreate(BaseModel):
     menu_item_id: str
     quantity: int
     price: float
+    
+
+class OrderItemUpdate(BaseModel):
+    order_id: str
+    menu_item_id: str
+    quantity: int
+    price: float
