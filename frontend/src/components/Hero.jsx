@@ -38,23 +38,22 @@ function Hero() {
 
     <div className="hero-stats">
 
-        <StatCard
-            number="500+"
-            text="Restaurants"
-        />
+    <StatCard
+        number="500+"
+        label="Restaurants"
+    />
 
-        <StatCard
-            number="50K+"
-            text="Happy Customers"
-        />
+    <StatCard
+        number="50K+"
+        label="Happy Customers"
+    />
 
-        <StatCard
-            number="30 Min"
-            text="Average Delivery"
-        />
+    <StatCard
+        number="30 Min"
+        label="Average Delivery"
+    />
 
-    </div>
-
+</div>
 </div>
     </section>
   );

@@ -1,8 +1,8 @@
-function StatCard({ number, text }) {
+function StatCard({ number, label }) {
   return (
     <div className="stat-card">
-      <h3>{number}</h3>
-      <p>{text}</p>
+      <h2>{number}</h2>
+      <span>{label}</span>
     </div>
   );
 }
