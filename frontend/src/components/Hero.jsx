@@ -1,92 +1,101 @@
-import FloatingBadge from "./FloatingBadge";
-
-
 import SearchBar from "./SearchBar";
 import StatCard from "./StatCard";
+import FloatingBadge from "./FloatingBadge";
+
 function Hero() {
   return (
     <section className="hero">
-      <div className="hero-text">
 
-    <span className="hero-badge">
-        🍔 Fast Delivery
-    </span>
+      <div className="container hero-content">
 
-    <h1>
-        Delicious Food,
-        <br />
-        Delivered Fast
-    </h1>
+        {/* LEFT */}
 
-    <p>
-        Discover the best restaurants around you
-        and enjoy fresh meals delivered straight
-        to your door.
-    </p>
+        <div className="hero-text">
 
-    <SearchBar />
+          <span className="hero-badge">
+            🍔 Fast Delivery
+          </span>
 
-    <div className="hero-actions">
+          <h1>
+            Delicious Food,
+            <br />
+            Delivered Fast
+          </h1>
 
-        <button className="btn btn-primary">
-            Order Now
-        </button>
+          <p>
+            Discover the best restaurants around you and enjoy fresh meals
+            delivered straight to your door.
+          </p>
 
-        <button className="btn btn-outline">
-            Browse Menu
-        </button>
+          <SearchBar />
 
-    </div>
+          <div className="hero-actions">
 
-    <div className="hero-stats">
+            <button className="btn btn-primary">
+              Order Now
+            </button>
 
-    <StatCard
-        number="500+"
-        label="Restaurants"
-    />
+            <button className="btn btn-outline">
+              Browse Menu
+            </button>
 
-    <StatCard
-        number="50K+"
-        label="Happy Customers"
-    />
+          </div>
 
-    <StatCard
-        number="30 Min"
-        label="Average Delivery"
-    />
+          <div className="hero-stats">
 
-</div>
+            <StatCard
+              number="500+"
+              label="Restaurants"
+            />
 
-    <div className="hero-image">
+            <StatCard
+              number="50K+"
+              label="Happy Customers"
+            />
 
-    <img
-        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700"
-        alt="Burger"
-    />
+            <StatCard
+              number="30 Min"
+              label="Average Delivery"
+            />
 
-    <FloatingBadge
-        icon="⭐"
-        title="Rating"
-        value="4.9"
-        className="badge-rating"
-    />
+          </div>
 
-    <FloatingBadge
-        icon="🚚"
-        title="Delivery"
-        value="20 Min"
-        className="badge-delivery"
-    />
+        </div>
 
-    <FloatingBadge
-        icon="🔥"
-        title="Popular"
-        value="500+ Orders"
-        className="badge-popular"
-    />
+        {/* RIGHT */}
 
-</div>
-</div>
+        <div className="hero-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700"
+            alt="Burger"
+          />
+
+          <FloatingBadge
+            icon="⭐"
+            title="Rating"
+            value="4.9"
+            className="badge-rating"
+          />
+
+          <FloatingBadge
+            icon="🚚"
+            title="Delivery"
+            value="20 Min"
+            className="badge-delivery"
+          />
+
+          <FloatingBadge
+            icon="🔥"
+            title="Popular"
+            value="500+ Orders"
+            className="badge-popular"
+          />
+
+        </div>
+
+      </div>
+
     </section>
   );
 }
