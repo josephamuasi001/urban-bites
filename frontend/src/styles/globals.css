@@ -1,0 +1,46 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:
+    Inter,
+    sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+}
+
+button{
+
+    cursor:pointer;
+
+    font-family:inherit;
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+}
+
+.container{
+
+    width:90%;
+
+    max-width:1280px;
+
+    margin:auto;
+}

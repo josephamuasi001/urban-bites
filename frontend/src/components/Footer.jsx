@@ -1,15 +1,13 @@
 function Footer() {
   return (
-    <footer
-      style={{
-        textAlign: "center",
-        padding: "30px",
-        marginTop: "50px",
-        background: "#222",
-        color: "#fff",
-      }}
-    >
-      © 2026 Urban Bite
+    <footer className="footer">
+
+      <div className="container">
+
+        <p>© 2026 Urban Bite</p>
+
+      </div>
+
     </footer>
   );
 }

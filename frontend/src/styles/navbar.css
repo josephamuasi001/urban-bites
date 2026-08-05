@@ -1,0 +1,45 @@
+.navbar{
+
+    background:white;
+
+    box-shadow:var(--shadow);
+
+    padding:18px 0;
+}
+
+.navbar-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.logo{
+
+    font-size:1.5rem;
+
+    font-weight:700;
+
+    color:var(--primary);
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:32px;
+
+    font-weight:500;
+}
+
+.nav-links a{
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+
+    color:var(--primary);
+}
