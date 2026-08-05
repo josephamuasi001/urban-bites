@@ -24,13 +24,13 @@ function Hero() {
 
     <SearchBar />
 
-    <div className="hero-buttons">
+    <div className="hero-actions">
 
-        <button className="primary-btn">
+        <button className="btn btn-primary">
             Order Now
         </button>
 
-        <button className="secondary-btn">
+        <button className="btn btn-outline">
             Browse Menu
         </button>
 

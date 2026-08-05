@@ -102,3 +102,10 @@
     color:var(--primary);
     margin-bottom:5px;
 }
+
+.hero-actions{
+    display:flex;
+    gap:16px;
+    margin-top:28px;
+    margin-bottom:35px;
+}
