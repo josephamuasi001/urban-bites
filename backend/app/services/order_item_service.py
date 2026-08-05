@@ -1,5 +1,7 @@
 from app.database.supabase import supabase
 
+from app.database.supabase import supabase
+
 
 def create_order_item(order_item):
 
@@ -13,6 +15,7 @@ def create_order_item(order_item):
         })
         .execute()
     )
+    update_order_total(order_item.order_id)
 
     return {
         "success": True,
@@ -48,3 +51,31 @@ def get_order_item_by_id(order_item_id):
         }
 
     return response.data[0]
+
+
+def update_order_total(order_id):
+
+    # Get all items for this order
+    response = (
+        supabase.table("order_items")
+        .select("price")
+        .eq("order_id", order_id)
+        .execute()
+    )
+
+    total = 0
+
+    for item in response.data:
+        total += float(item["price"])
+
+    # Update orders table
+    (
+        supabase.table("orders")
+        .update({
+            "total_amount": total
+        })
+        .eq("id", order_id)
+        .execute()
+    )
+
+    return total
