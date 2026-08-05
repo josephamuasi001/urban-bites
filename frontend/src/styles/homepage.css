@@ -161,3 +161,93 @@
     font-size:.95rem;
 
 }
+
+
+.hero-image{
+    position:relative;
+    flex:1;
+}
+
+.floating-badge{
+
+    position:absolute;
+
+    background:#fff;
+
+    padding:12px 16px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.10);
+
+    animation:float 4s ease-in-out infinite;
+}
+
+.floating-icon{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:#FFF4EC;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+}
+
+.floating-content small{
+
+    display:block;
+
+    color:#888;
+}
+
+.floating-content strong{
+
+    font-size:15px;
+}
+
+.badge-rating{
+
+    top:8%;
+    left:-35px;
+}
+
+.badge-delivery{
+
+    bottom:18%;
+    right:-30px;
+}
+
+.badge-popular{
+
+    top:60%;
+    left:-55px;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}

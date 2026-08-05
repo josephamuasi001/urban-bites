@@ -1,3 +1,5 @@
+import FloatingBadge from "./FloatingBadge";
+
 
 import SearchBar from "./SearchBar";
 import StatCard from "./StatCard";
@@ -51,6 +53,36 @@ function Hero() {
     <StatCard
         number="30 Min"
         label="Average Delivery"
+    />
+
+</div>
+
+    <div className="hero-image">
+
+    <img
+        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=700"
+        alt="Burger"
+    />
+
+    <FloatingBadge
+        icon="⭐"
+        title="Rating"
+        value="4.9"
+        className="badge-rating"
+    />
+
+    <FloatingBadge
+        icon="🚚"
+        title="Delivery"
+        value="20 Min"
+        className="badge-delivery"
+    />
+
+    <FloatingBadge
+        icon="🔥"
+        title="Popular"
+        value="500+ Orders"
+        className="badge-popular"
     />
 
 </div>
