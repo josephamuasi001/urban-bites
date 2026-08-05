@@ -9,7 +9,8 @@ from app.services.restaurant_service import (
     create_restaurant,
     get_all_restaurants,
     get_restaurant_by_id,
-    update_restaurant
+    update_restaurant,
+    delete_restaurant
 )
 
 router = APIRouter(
@@ -41,4 +42,12 @@ def update_existing_restaurant(
     return update_restaurant(
         restaurant_id,
         restaurant
+    )
+    
+
+@router.delete("/{restaurant_id}")
+def delete_existing_restaurant(restaurant_id: str):
+
+    return delete_restaurant(
+        restaurant_id
     )

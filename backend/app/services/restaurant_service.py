@@ -98,3 +98,19 @@ def update_restaurant(restaurant_id, restaurant):
         "message": "Restaurant updated successfully.",
         "data": response.data
     }
+    
+
+def delete_restaurant(restaurant_id):
+
+    response = (
+        supabase.table("restaurants")
+        .delete()
+        .eq("id", restaurant_id)
+        .execute()
+    )
+
+    return {
+        "success": True,
+        "message": "Restaurant deleted successfully.",
+        "data": response.data
+    }
