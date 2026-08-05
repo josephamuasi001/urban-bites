@@ -5,7 +5,9 @@ from app.services.order_service import (
     create_order,
     get_all_orders,
     get_my_orders,
-    update_order_status
+    update_order_status,
+    get_order_by_id,
+    delete_order
 )
 
 
@@ -14,10 +16,7 @@ from app.schemas.order import (
     OrderStatusUpdate
 )
 
-from app.services.order_service import (
-    create_order,
-    get_all_orders
-)
+
 
 router = APIRouter(
     prefix="/orders",
@@ -59,3 +58,16 @@ def change_order_status(
         order_id,
         order.status
     )
+    
+    
+@router.get("/{order_id}")
+def get_order(order_id: str):
+
+    return get_order_by_id(order_id)
+
+
+@router.delete("/{order_id}")
+def remove_order(order_id: str):
+
+    return delete_order(order_id)
+

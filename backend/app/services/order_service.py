@@ -109,3 +109,46 @@ def update_order_status(order_id, status):
         "message": "Order updated successfully.",
         "data": response.data
     }
+    
+
+def get_order_by_id(order_id):
+
+    response = (
+        supabase.table("orders")
+        .select("*")
+        .eq("id", order_id)
+        .execute()
+    )
+
+    if not response.data:
+        return {
+            "success": False,
+            "message": "Order not found."
+        }
+
+    return response.data[0]
+
+
+def delete_order(order_id):
+
+    # Delete order items first
+    supabase.table("order_items") \
+        .delete() \
+        .eq("order_id", order_id) \
+        .execute()
+
+    # Delete the order
+    response = (
+        supabase.table("orders")
+        .delete()
+        .eq("id", order_id)
+        .execute()
+    )
+
+    return {
+        "success": True,
+        "message": "Order deleted successfully.",
+        "data": response.data
+    }
+    
+    
