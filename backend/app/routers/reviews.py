@@ -1,11 +1,20 @@
 from fastapi import APIRouter, Depends
 
 from app.auth.auth_bearer import get_current_user
-from app.schemas.review import ReviewCreate
+
+from app.schemas.review import (
+    ReviewCreate,
+    ReviewUpdate
+)
+
 from app.services.review_service import (
     create_review,
-    get_restaurant_reviews
+    get_restaurant_reviews,
+    get_review_by_id,
+    update_review,
+    delete_review
 )
+
 
 router = APIRouter(
     prefix="/reviews",
@@ -31,3 +40,33 @@ def get_reviews(restaurant_id: str):
     return get_restaurant_reviews(
         restaurant_id
     )
+
+
+@router.get("/item/{review_id}")
+def get_review(review_id: str):
+
+    return get_review_by_id(
+        review_id
+    )
+    
+
+@router.put("/{review_id}")
+def edit_review(
+    review_id: str,
+    review: ReviewUpdate
+):
+
+    return update_review(
+        review_id,
+        review
+    )
+    
+
+
+@router.delete("/{review_id}")
+def remove_review(review_id: str):
+
+    return delete_review(
+        review_id
+    )
+
