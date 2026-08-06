@@ -31,7 +31,7 @@ function AppRoutes() {
       <Route path="/register" element={<RegisterPage />} />
 
       <Route path="*" element={<NotFoundPage />} />
-      <Route path="/restaurants" element={<RestaurantsPage />} />
+      
     </Routes>
   );
 }

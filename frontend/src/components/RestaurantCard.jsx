@@ -1,17 +1,20 @@
+import { Link } from "react-router-dom";
+
 function RestaurantCard({ restaurant }) {
+
   return (
     <div className="restaurant-card">
 
       <div className="restaurant-image">
 
         <img
-          src={restaurant.image}
+          src={
+            restaurant.image_url !== "n/a"
+              ? restaurant.image_url
+              : "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800"
+          }
           alt={restaurant.name}
         />
-
-        <button className="favorite-btn">
-          🤍
-        </button>
 
         <div className="rating-badge">
           ⭐ {restaurant.rating}
@@ -23,17 +26,34 @@ function RestaurantCard({ restaurant }) {
 
         <h3>{restaurant.name}</h3>
 
+        <p>{restaurant.cuisine}</p>
+
         <div className="restaurant-meta">
 
-          <span>🍔 {restaurant.cuisine}</span>
+          <span>📍 {restaurant.city}</span>
 
-          <span>🕒 {restaurant.time}</span>
+          <span>
+            🕒 {restaurant.opening_time} - {restaurant.closing_time}
+          </span>
 
         </div>
 
-        <button className="btn btn-primary restaurant-btn">
-          Order Now
-        </button>
+        <div className="restaurant-meta">
+
+          <span>🚚 GH₵ {restaurant.delivery_fee}</span>
+
+          <span>
+            {restaurant.is_open ? "🟢 Open" : "🔴 Closed"}
+          </span>
+
+        </div>
+
+        <Link
+          to={`/restaurants/${restaurant.id}`}
+          className="btn btn-primary restaurant-btn"
+        >
+          View Restaurant
+        </Link>
 
       </div>
 
