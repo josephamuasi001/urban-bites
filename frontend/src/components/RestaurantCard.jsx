@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 function RestaurantCard({ restaurant }) {
 
   return (
+    
     <div className="restaurant-card">
 
       <div className="restaurant-image">
@@ -60,5 +61,7 @@ function RestaurantCard({ restaurant }) {
     </div>
   );
 }
+
+
 
 export default RestaurantCard;
