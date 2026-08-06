@@ -38,50 +38,7 @@ function RestaurantsPage() {
 
     }, []);
 
-    return (
-
-        <>
-            <Navbar />
-
-            <main className="container">
-
-                <section className="page-header">
-
-                    <span className="section-label">
-                        DISCOVER
-                    </span>
-
-                    <h1>Restaurants</h1>
-
-                    <p>
-                        Discover amazing restaurants around you.
-                    </p>
-
-                </section>
-
-                {loading && <h2>Loading restaurants...</h2>}
-
-                {error && <h2>{error}</h2>}
-
-                <div className="restaurant-grid">
-
-                    {restaurants.map((restaurant) => (
-
-                        <RestaurantCard
-                            key={restaurant.id}
-                            restaurant={restaurant}
-                        />
-
-                    ))}
-
-                </div>
-
-            </main>
-
-            <Footer />
-        </>
-
-    );
+    return 
 
 }
 
