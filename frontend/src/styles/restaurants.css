@@ -1,0 +1,37 @@
+.page-header{
+
+    text-align:center;
+
+    padding:70px 0 50px;
+
+}
+
+.page-header h1{
+
+    font-size:3rem;
+
+    margin:18px 0;
+
+}
+
+.page-header p{
+
+    color:var(--text-light);
+
+    max-width:650px;
+
+    margin:auto;
+
+}
+
+.restaurant-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:28px;
+
+    margin-bottom:80px;
+
+}

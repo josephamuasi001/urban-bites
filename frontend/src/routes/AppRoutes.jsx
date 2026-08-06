@@ -13,6 +13,7 @@ import OrdersPage from "../pages/OrdersPage";
 import ProfilePage from "../pages/ProfilePage";
 import NotFoundPage from "../pages/NotFoundPage";
 
+
 function AppRoutes() {
   return (
     <Routes>
@@ -30,6 +31,7 @@ function AppRoutes() {
       <Route path="/register" element={<RegisterPage />} />
 
       <Route path="*" element={<NotFoundPage />} />
+      <Route path="/restaurants" element={<RestaurantsPage />} />
     </Routes>
   );
 }
