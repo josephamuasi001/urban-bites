@@ -2,15 +2,19 @@
 backend/venv/
 __pycache__/
 *.pyc
-.env
+
+# Environment variables
+backend/.env
 
 # Node
 frontend/node_modules/
+
+# Build folders
 frontend/dist/
 
 # VS Code
 .vscode/
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
